@@ -1,0 +1,22 @@
+package ManagerAccount;
+
+public class DokumentService {
+	private double Seiten;
+	private double GesamtPreis;
+	 Projekt p_Projekt;
+	
+	 public DokumentService( Projekt p_Projekt )
+	    {
+	        this.p_Projekt = p_Projekt;
+	    }
+	 
+	 
+		 //Methode, die berechnet die Zahl der Uebersetzungsseiten
+		
+	     public  double berechneSeiten (){
+	    	 if(p_Projekt.alleDateiBerechnen()<=0) throw new IllegalArgumentException();
+	    	 else 
+	    		 Seiten=Math.rint(p_Projekt.alleDateiBerechnen()/18)/100;
+	    	return Seiten;
+	 	}
+	}
