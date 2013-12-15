@@ -1,0 +1,8 @@
+package ManagerAccount;
+
+public interface projekt {
+
+	//Berechnet die Zeichenanzahl aller Dateien im Projekt
+	
+public int alleDateiBerechnen();
+}
