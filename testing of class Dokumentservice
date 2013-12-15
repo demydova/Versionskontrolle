@@ -1,0 +1,44 @@
+package ManagerAccount;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.when;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+public class DokumentServiceTest {
+
+	
+	@Mock
+    private Projekt var_Projekt;
+    private DokumentService var_DokumentService;
+
+
+	@Before
+	public void setup() throws Exception {
+		MockitoAnnotations.initMocks( this );
+		var_DokumentService = new DokumentService( var_Projekt );
+		
+	}
+
+	@Test
+	public void testBerechneSeite() {
+		double DELTA = 1e-15;
+		when(var_Projekt.alleDateiBerechnen()).thenReturn(5000);
+		assertEquals(2.77, var_DokumentService.berechneSeiten(),DELTA);
+		
+	}
+	
+	@Test
+	public void testBerechneSeitenZero(){
+		try{
+			when(var_Projekt.alleDateiBerechnen()).thenReturn(0);
+			assertEquals(0,00, var_DokumentService.berechneSeiten());
+		}
+		catch (IllegalArgumentException ea){
+			return;}//catch (Exception ea)wenn die angegebene Zeichenanzahl ist gleich oder kleiner 0
+		fail ("Error");
+			}
+	}
