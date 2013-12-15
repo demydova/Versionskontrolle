@@ -41,4 +41,12 @@ public class DokumentServiceTest {
 			return;}//catch (Exception ea)wenn die angegebene Zeichenanzahl ist gleich oder kleiner 0
 		fail ("Error");
 			}
+			
+			@Test
+	public void testBerechnePreis() {
+		double DELTA = 1e-15;
+		when(var_Projekt.alleDateiBerechnen()).thenReturn(5000);
+		assertEquals (27.7, var_DokumentService.berechnePreis(10),DELTA);
+	}
+	
 	}
